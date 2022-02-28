@@ -15,6 +15,12 @@ template" button at the top of the page.
 
 ## Usage
 
+### Deployed addresses
+
+Testnet Network: `Rinkeby`
+
+`DogCoin ` : [0x9e7CC568670ED074Da78b8bd383b4872455C89AF](https://rinkeby.etherscan.io/address/0x9e7CC568670ED074Da78b8bd383b4872455C89AF)
+
 ### Pre Requisites
 
 Before running any command, you need to create a `.env` file and set a BIP-39 compatible mnemonic as an environment
