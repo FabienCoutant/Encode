@@ -1,1 +1,2 @@
-import "./dogcoin";
+import "./proposal";
+import "./factoryV1";
