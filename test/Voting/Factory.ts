@@ -3,7 +3,7 @@ import { artifacts, ethers, waffle } from "hardhat";
 import type { Artifact } from "hardhat/types";
 import type { SignerWithAddress } from "@nomiclabs/hardhat-ethers/dist/src/signer-with-address";
 
-import type { Factory } from "../../src/types";
+import type { FactoryV1 as Factory } from "../../src/types";
 import { Signers } from "../types";
 
 describe("Factory", function () {

@@ -2,15 +2,20 @@
 
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-contract DogCoin is ERC20 {
+contract DogCoinV1 is OwnableUpgradeable, ERC20Upgradeable, UUPSUpgradeable {
     address[] public holders;
+
     event addHolder(address holder);
     event removeHolder(address holder);
 
-    constructor() ERC20("DogCoin", "DC") {
-        _mint(msg.sender, 10 ether);
+    function initialize() public initializer {
+        __Ownable_init();
+        __ERC20_init("DogCoinUpgradeable", "DC");
+        _mint(msg.sender, 10 * 10**decimals());
     }
 
     function _beforeTokenTransfer(
@@ -57,4 +62,6 @@ contract DogCoin is ERC20 {
         }
         return false;
     }
+
+    function _authorizeUpgrade(address newImplementation) internal override onlyOwner {}
 }
